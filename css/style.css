@@ -268,30 +268,30 @@ p {
 }
 
 .home-page .hero p {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   margin-top: var(--space-lg);
   line-height: 1.9;
 }
 
 .home-page .parrot-card-info p {
-  font-size: 1.25rem;
-  max-width: 400px;
+  font-size: 1.05rem;
+  max-width: 360px;
   line-height: 1.9;
 }
 
 .home-page .section-label {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .home-page .btn {
-  font-size: 1.1rem;
-  padding: 0.9rem 2.4rem;
+  font-size: 0.95rem;
+  padding: 0.8rem 2.2rem;
 }
 
 /* --- Detail Page Info Cards --- */
 .info-item .label {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
@@ -299,7 +299,7 @@ p {
 }
 
 .info-item .value {
-  font-size: 1.25rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -972,7 +972,7 @@ p {
   }
 
   .home-page .parrot-card-info p {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .parrot-card {
@@ -1063,7 +1063,7 @@ p {
   }
 
   .home-page .parrot-card-info p {
-    font-size: 1.05rem;
+    font-size: 0.9rem;
   }
 
   .parrot-card {
