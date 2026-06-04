@@ -73,8 +73,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--text-primary);
   background-color: var(--bg-primary);
   overflow-x: hidden;
@@ -104,10 +104,10 @@ h1, h2, h3, h4 {
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
-h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
-h4 { font-size: 1.1rem; }
+h1 { font-size: clamp(2.2rem, 5.5vw, 3.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.65rem, 3.8vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.2vw, 1.65rem); }
+h4 { font-size: 1.2rem; }
 
 p {
   color: var(--text-secondary);
