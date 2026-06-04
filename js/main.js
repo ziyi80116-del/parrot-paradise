@@ -115,43 +115,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === Video Modal ===
+  // === Bilibili Video Modal ===
   const videoModal = document.querySelector('.video-modal');
-  const videoPlayer = document.querySelector('.video-modal-content video');
+  const videoModalContent = document.querySelector('.video-modal-content');
 
-  if (videoModal && videoPlayer) {
-    document.querySelectorAll('[data-video]').forEach(el => {
+  if (videoModal && videoModalContent) {
+    document.querySelectorAll('[data-bilibili]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
-        const videoSrc = el.dataset.video;
-        videoPlayer.querySelector('source').src = videoSrc;
-        videoPlayer.load();
-        videoPlayer.play();
+        const bvid = el.dataset.bilibili;
+        // Clear previous content and create iframe
+        const existingIframe = videoModalContent.querySelector('.bilibili-container');
+        if (existingIframe) existingIframe.remove();
+        const existingClose = videoModalContent.querySelector('.video-modal-close');
+        if (existingClose) existingClose.remove();
+
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'video-modal-close';
+        closeBtn.innerHTML = '&times;';
+        videoModalContent.appendChild(closeBtn);
+
+        const container = document.createElement('div');
+        container.className = 'bilibili-container';
+        container.innerHTML = '<iframe src="//player.bilibili.com/player.html?bvid=' + bvid + '&page=1&autoplay=1&high_quality=1" allowfullscreen scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups" allow="autoplay; fullscreen"></iframe>';
+        videoModalContent.appendChild(container);
+
         videoModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Close button handler
+        closeBtn.addEventListener('click', () => {
+          videoModal.classList.remove('active');
+          document.body.style.overflow = '';
+          container.remove();
+          closeBtn.remove();
+        });
       });
     });
 
-    // Close video modal
-    document.querySelector('.video-modal-close')?.addEventListener('click', () => {
-      videoPlayer.pause();
-      videoModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
+    // Close on overlay click
     videoModal.addEventListener('click', (e) => {
       if (e.target === videoModal) {
-        videoPlayer.pause();
         videoModal.classList.remove('active');
         document.body.style.overflow = '';
+        const iframe = videoModalContent.querySelector('.bilibili-container');
+        const btn = videoModalContent.querySelector('.video-modal-close');
+        if (iframe) iframe.remove();
+        if (btn) btn.remove();
       }
     });
 
+    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-        videoPlayer.pause();
         videoModal.classList.remove('active');
         document.body.style.overflow = '';
+        const iframe = videoModalContent.querySelector('.bilibili-container');
+        const btn = videoModalContent.querySelector('.video-modal-close');
+        if (iframe) iframe.remove();
+        if (btn) btn.remove();
       }
     });
   }
